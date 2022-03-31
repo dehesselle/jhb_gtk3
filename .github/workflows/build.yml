@@ -18,10 +18,12 @@ on:
       SDK_DOWNLOAD_URL:
         required: false
 
-# This workflow is about running 'usr/bin/bootstrap' and creating an archive of
-# built software. All other steps are basically preparations.
+# This workflow is about running 'usr/bin/bootstrap' and creating an
+# archive of the built software. All other steps are basically preparations.
 
 jobs:
+
+  ##############################################################################
 
   build:
     runs-on: macos-10.15
@@ -32,14 +34,14 @@ jobs:
 
       #------------------------------------------------- prepare the environemnt
 
-      - name: download jhb
+      - name: checkout jhb
         uses: actions/checkout@v3
         with:
           repository: dehesselle/jhb
-          ref: v0.6
+          ref: v0.8
           submodules: true
 
-      - name: download moduleset
+      - name: checkout jhb_gtk3
         uses: actions/checkout@v3
         with:
           repository: dehesselle/jhb_gtk3
